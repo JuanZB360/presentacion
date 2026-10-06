@@ -35,7 +35,7 @@ export default function CarouselThumbnails({
   return (
     <div
       ref={containerRef}
-      className="h-12 w-full overflow-x-auto overflow-y-hidden pb-0.5 scrollbar-thin select-none"
+      className="h-10 sm:h-12 w-full overflow-x-auto overflow-y-hidden pb-0.5 scrollbar-thin select-none"
     >
       <div className="flex gap-1.5 h-full items-center">
         {images.map((img, idx) => {

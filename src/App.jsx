@@ -55,7 +55,7 @@ export default function App() {
         />
 
         {/* Viewport for current slide - Handled by PresentationRoutes */}
-        <main className="flex-1 min-h-0 overflow-hidden px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-center">
+        <main className="flex-1 min-h-0 overflow-hidden px-2.5 py-2 sm:px-6 sm:py-4 flex items-center justify-center">
           <PresentationRoutes
             slides={slidesData}
             onOpenGuion={() => setIsGuionOpen(true)}

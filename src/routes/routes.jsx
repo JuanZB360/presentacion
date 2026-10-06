@@ -10,19 +10,7 @@ import {
 
 /**
  * Helper redirect component for parameterized /slide/:slideId routes
- */const miMotor = {
-
-  parents: ["Adriana", "Gabriel"],
-
-  siblingsCount: 6,
-
-  siblings: ["Deisy", "Carolina", "Samuel", "Santiago", "Pablo", "Ana"],
-
-  partner: "Carolina 💖",
-
-  purpose: "Aterrizarme después de un día frente a la pantalla"
-
-};
+ */
 function SlideParamRedirect() {
   const { slideId } = useParams()
   const targetIndex = getSlideIndexFromPath(`/slide/${slideId}`)

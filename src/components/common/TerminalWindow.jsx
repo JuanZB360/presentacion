@@ -36,7 +36,7 @@ export default function TerminalWindow({
       </div>
 
       {/* Terminal Content Body - Internal scrolling only with overscroll-contain */}
-      <div className="p-5 sm:p-6 flex flex-col gap-4 flex-1 min-h-0 overflow-y-auto overscroll-contain">
+      <div className="p-3.5 sm:p-5 md:p-6 flex flex-col gap-3 sm:gap-4 flex-1 min-h-0 overflow-y-auto overscroll-contain">
         {children}
       </div>
     </div>

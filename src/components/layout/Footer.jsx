@@ -18,13 +18,13 @@ export default function Footer({
 
   return (
     <footer className="shrink-0 h-16 bg-slate-950/85 backdrop-blur-xl border-t border-white/5 z-40 select-none">
-      <div className="max-w-6xl mx-auto h-full px-4 sm:px-6 flex items-center justify-between gap-4">
+      <div className="max-w-6xl mx-auto h-full px-2.5 sm:px-6 flex items-center justify-between gap-2 sm:gap-4">
         {/* Left: Previous Button */}
         <div>
           <button
             onClick={onPrev}
             disabled={isFirst}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold border transition-all cursor-pointer ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold border transition-all cursor-pointer ${
               isFirst
                 ? 'opacity-30 cursor-not-allowed border-transparent text-slate-500'
                 : 'bg-white/[0.04] hover:bg-white/[0.08] text-slate-200 border-white/10 hover:border-white/20'
@@ -38,8 +38,8 @@ export default function Footer({
         </div>
 
         {/* Center: Slide dots & info */}
-        <div className="flex items-center gap-4 sm:gap-6">
-          <div className="text-xs font-mono">
+        <div className="flex items-center gap-2.5 sm:gap-6">
+          <div className="text-xs font-mono whitespace-nowrap">
             <span className="font-bold text-cyan-400">
               {String(currentSlideIndex + 1).padStart(2, '0')}
             </span>
@@ -49,14 +49,14 @@ export default function Footer({
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             {slides.map((s, idx) => {
               const isActive = idx === currentSlideIndex
               return (
                 <Link
                   key={s.id}
                   to={getPathBySlideIndex(idx)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all cursor-pointer ${
+                  className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all cursor-pointer ${
                     isActive ? 'scale-125 shadow-md' : 'opacity-30 hover:opacity-75'
                   }`}
                   style={{
@@ -82,7 +82,7 @@ export default function Footer({
         <div>
           <button
             onClick={onNext}
-            className="flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer hover:scale-105 active:scale-95 shadow-lg"
+            className="flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer hover:scale-105 active:scale-95 shadow-lg"
             style={{
               backgroundColor: currentSlide.accentColor || '#38bdf8',
               color: '#070a13',

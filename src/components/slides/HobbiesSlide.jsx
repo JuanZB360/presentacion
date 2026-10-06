@@ -1,16 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TerminalWindow from '../common/TerminalWindow'
 import Badge from '../common/Badge'
 import ImageCarousel from '../carousel/ImageCarousel'
+import SlideViewToggle from '../common/SlideViewToggle'
 
 /**
  * SRP & LSP: Slide 5 component - Life outside of code, recharge mode and music
  */
 export default function HobbiesSlide({ slide, onOpenGuion }) {
+  const [mobileTab, setMobileTab] = useState('info')
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center justify-center w-full h-full min-h-0 overflow-hidden">
-      {/* Left Column: Hobbies Cards */}
-      <div className="flex flex-col gap-2.5 w-full h-full min-h-0 justify-between">
+    <div className="flex flex-col w-full h-full min-h-0 overflow-hidden">
+      {/* Mobile Switcher (visible on < lg screens) */}
+      <SlideViewToggle
+        activeTab={mobileTab}
+        onTabChange={setMobileTab}
+        infoLabel="Offline Mode"
+        galleryLabel="Galería Hobbies"
+        photoCount={slide.images.length}
+        accentColor={slide.accentColor}
+      />
+
+      {/* Main Grid: 2 columns on lg (desktop), cleanly toggled on mobile */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-center justify-center w-full flex-1 min-h-0 overflow-hidden">
+        {/* Left Column: Hobbies Cards */}
+        <div
+          className={`flex-col gap-2.5 w-full h-full min-h-0 justify-between ${
+            mobileTab === 'gallery' ? 'hidden lg:flex' : 'flex'
+          }`}
+        >
         <TerminalWindow
           title="lifestyle.config // Offline Mode"
           lang="balance.yaml"
@@ -102,17 +121,22 @@ export default function HobbiesSlide({ slide, onOpenGuion }) {
         </button>
       </div>
 
-      {/* Right Column: Hobbies Photos Carousel */}
-      <div className="flex flex-col gap-2 justify-center items-center w-full shrink-0">
-        <div className="flex items-center justify-between px-1 w-full max-w-[500px]">
-          <Badge variant="amber">🎸 Galería Pasatiempos ({slide.images.length} fotos)</Badge>
-          <span className="text-[11px] font-mono text-slate-500">Música, comida y descanso</span>
+        {/* Right Column: Hobbies Photos Carousel */}
+        <div
+          className={`flex-col gap-2 justify-center items-center w-full shrink-0 h-full ${
+            mobileTab === 'info' ? 'hidden lg:flex' : 'flex'
+          }`}
+        >
+          <div className="flex items-center justify-between px-1 w-full max-w-[500px]">
+            <Badge variant="amber">🎸 Galería Pasatiempos ({slide.images.length} fotos)</Badge>
+            <span className="text-[11px] font-mono text-slate-500">Música, comida y descanso</span>
+          </div>
+          <ImageCarousel
+            images={slide.images}
+            accentColor={slide.accentColor}
+            categoryTitle="Pasatiempos"
+          />
         </div>
-        <ImageCarousel
-          images={slide.images}
-          accentColor={slide.accentColor}
-          categoryTitle="Pasatiempos"
-        />
       </div>
     </div>
   )

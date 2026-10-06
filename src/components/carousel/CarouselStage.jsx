@@ -14,7 +14,7 @@ export default function CarouselStage({
   return (
     <div
       onClick={onOpenZoom}
-      className="relative w-full h-[440px] sm:h-[480px] lg:h-[520px] max-h-[58vh] bg-slate-950/90 border border-white/10 rounded-2xl overflow-hidden cursor-pointer group flex items-center justify-center shadow-2xl transition-all duration-300 hover:border-white/20 select-none shrink-0"
+      className="relative w-full h-[280px] sm:h-[380px] md:h-[440px] lg:h-[480px] xl:h-[520px] max-h-[50vh] sm:max-h-[58vh] bg-slate-950/90 border border-white/10 rounded-2xl overflow-hidden cursor-pointer group flex items-center justify-center shadow-2xl transition-all duration-300 hover:border-white/20 select-none shrink-0"
     >
       {/* Subtle ambient blurred background from the image itself */}
       <img
